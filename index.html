@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+        }
+        #weather-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form id="weather-form">
+            <input type="text" id="city-input" placeholder="Enter a city...">
+            <button type="submit">Get Weather</button>
+        </form>
+        <div id="weather-info">
+            <h2 id="city"></h2>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <p id="humidity"></p>
+            <p id="wind"></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('weather-form');
+        const cityInput = document.getElementById('city-input');
+        const cityElement = document.getElementById('city');
+        const temperatureElement = document.getElementById('temperature');
+        const descriptionElement = document.getElementById('description');
+        const humidityElement = document.getElementById('humidity');
+        const windElement = document.getElementById('wind');
+
+        form.addEventListener('submit', getWeather);
+
+        function getWeather(e) {
+            e.preventDefault();
+            const city = cityInput.value;
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY`)
+                .then(response => response.json())
+                .then(data => {
+                    cityElement.innerText = data.name;
+                    temperatureElement.innerText = `${data.main.temp} K`;
+                    descriptionElement.innerText = data.weather[0].description;
+                    humidityElement.innerText = `${data.main.humidity}%`;
+                    windElement.innerText = `${data.wind.speed} m/s`;
+                })
+                .catch(error => console.log(error));
+        }
+    </script>
+</body>
+</html>
