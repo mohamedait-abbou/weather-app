@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App Structure</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbe2ee;
+      --accent: #2563eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --border: #334155;
+        --accent: #60a5fa;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    h1 { margin-top: 0; }
+    p { color: var(--muted); }
+
+    .tree {
+      margin-top: 1.5rem;
+      padding-left: 0;
+      list-style: none;
+      border-left: 2px solid var(--border);
+      margin-left: 0.5rem;
+    }
+
+    .tree li {
+      position: relative;
+      margin: 0.75rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .tree li::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: 0.9rem;
+      width: 12px;
+      border-top: 2px solid var(--border);
+    }
+
+    code {
+      background: rgba(37, 99, 235, 0.12);
+      color: var(--accent);
+      padding: 0.12rem 0.38rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .legend {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(148, 163, 184, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Weather App Structure</h1>
+    <p>This file describes the structure of the current weather app project.</p>
+
+    <ul class="tree">
+      <li><code>index.html</code> — Main app page and UI markup.</li>
+      <li><code>style.css</code> — Styling for layout, colors, and responsive behavior.</li>
+      <li><code>app.js</code> — Front-end logic, weather fetching, and interactions.</li>
+      <li><code>README.md</code> — Setup and usage notes for the project.</li>
+      <li><code>app-structure.html</code> — This visual project structure overview page.</li>
+    </ul>
+
+    <section class="legend">
+      <strong>How to use:</strong>
+      <p>Open this file directly in your browser to quickly understand which file does what in the app.</p>
+    </section>
+  </main>
+</body>
+</html>
